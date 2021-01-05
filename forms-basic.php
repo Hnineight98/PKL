@@ -11,22 +11,6 @@
     $id=mysqli_fetch_array($no);
     $kode=$id['id'];
     $urut=$kode+1;
-    // $urut=substr($kode, 3, 4);
-    // $tambah=(int)$urut+1;
-
-    // if(strlen($tambah)==1){
-    //     $format="AST"."000".$tambah;
-    // }
-    // else if(strlen($tambah)==2){
-    //     $format="AST"."00".$tambah;
-    // }
-    // else if(strlen($tambah)==3){
-    //     $format="AST"."0".$tambah;
-    // }
-    // else if(strlen($tambah)==4){
-    //     $format="AST".$tambah;
-    // }
-        
     
 
 ?>
@@ -177,9 +161,9 @@
                                         <div class="col-12 col-md-9">
                                             <select name="ukuran" id="selectSm" class="form-control-sm form-control" required>
                                                 <option disabled selected="">Ukuran</option>
-                                                <option value="1">KECIL</option>
-                                                <option value="2">SEDANG</option>
-                                                <option value="3">BESAR</option>
+                                                <option value="KECIL">KECIL</option>
+                                                <option value="SEDANG">SEDANG</option>
+                                                <option value="BESAR">BESAR</option>
                                             </select>
                                         </div>
                                     </div>
@@ -203,20 +187,11 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Tanggal Pembelian</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="date" id="text-input" name="tanggal" placeholder="Tanggal Pembelian" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
                                             <b><label for="text-input" class=" form-control-label">Harga beli per unit</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="harga_beli" placeholder="Harga per unit" class="form-control">
-                                            <small class="form-text text-muted"></small>
+                                            <input type="number" id="input-harga-beli" name="harga_beli" placeholder="Harga per unit" class="form-control">
+                                            <small class="ket-hrg-beli form-text text-muted"></small>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -224,7 +199,7 @@
                                             <b><label for="text-input" class=" form-control-label">Harga jual per unit</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="harga_jual" placeholder="Harga per unit" class="form-control">
+                                            <input type="number" id="input-harga-jual" name="harga_jual" placeholder="Harga per unit" class="form-control">
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
@@ -233,7 +208,7 @@
                                             <b><label for="text-input" class=" form-control-label">Profit</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="profit"  class="form-control" readonly="">
+                                            <input type="number" id="input-profit" name="profit"  class="form-control" readonly="">
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
@@ -275,6 +250,7 @@
 <!-- Right Panel -->
 
 <!-- Scripts -->
+<script src="assets/js/jquery-3-5-1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
@@ -298,6 +274,25 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var hrgBeli= $('#input-harga-beli');
+    var hrgJual = $('#input-harga-jual');
 
+    hrgJual.keyup(function(){
+        $('.ket-hrg-beli > *').remove();
+        if(hrgBeli.val().length === 0){
+            $('.ket-hrg-beli').append("<p class='text-danger'>Harga beli per unit tidak boleh kosong</p>");
+            hrgBeli.focus();
+        }else{
+            var calc = hrgJual.val()-hrgBeli.val();
+            if(!(calc < 0)){
+                $('#input-profit').val(calc);
+            }else{
+                $('#input-profit').val('0');
+            }
+            
+        }
+    });
+</script>
 </body>
 </html>

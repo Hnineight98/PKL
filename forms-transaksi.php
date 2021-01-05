@@ -5,11 +5,11 @@
         header("location:index.php");
     }
 
-    $conn=mysqli_connect("localhost", "root", "", "myne");
+    include 'core/koneksi.php';
     
-    $no=mysqli_query($conn, "SELECT id FROM tbl_barang ORDER BY id DESC");
+    $no=mysqli_query($conn, "SELECT id_transaksi FROM tbl_transaksi ORDER BY id_transaksi DESC");
     $id=mysqli_fetch_array($no);
-    $kode=$id['id'];
+    $kode=$id['id_transaksi'];
     $urut=$kode+1;
     // $urut=substr($kode, 3, 4);
     // $tambah=(int)$urut+1;
@@ -142,8 +142,8 @@
                                 <strong>Tambah Barang</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="inputdata.php" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                    <div class="row form-group">
+                                <form action="core/add-data-transaksi.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                    <div class="row form-group" hidden>
                                         <div class="col col-md-3">
                                             <b><label for="text-input" class=" form-control-label">Id Transaksi</label></b>
                                         </div>
@@ -158,7 +158,7 @@
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="input-kode-barang" name="kode" placeholder="Kode Barang" class="form-control">
-                                            <small class="form-text text-muted"></small>
+                                            <small class="kode-ket form-text text-muted"></small>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -166,38 +166,25 @@
                                             <b><label for="text-input" class=" form-control-label">Nama Barang</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="nama" placeholder="Nama Barang" class="form-control" required>
+                                            <input type="text" id="input-nama-barang" name="nama" placeholder="Nama Barang" class="form-control" readonly required>
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Ukuran</label></b>
+                                            <b><label for="text-input" class=" form-control-label">Stock</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <select name="ukuran" id="selectSm" class="form-control-sm form-control" required>
-                                                <option disabled selected="">Ukuran</option>
-                                                <option value="1">KECIL</option>
-                                                <option value="2">SEDANG</option>
-                                                <option value="3">BESAR</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Jenis</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="jenis" placeholder="Jenis" class="form-control">
+                                            <input type="text" id="input-stock-barang" name="stock" placeholder="0" class="form-control" readonly>
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Jumlah</label></b>
+                                            <b><label for="text-input" class=" form-control-label">Jumlah Terjual</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="int" id="text-input" name="jumlah" placeholder="Jumlah" class="form-control">
+                                            <input type="number" id="input-jumlah-barang" name="jumlah" placeholder="0" min="0" class="form-control" readonly>
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
@@ -206,16 +193,7 @@
                                             <b><label for="text-input" class=" form-control-label">Tanggal Pembelian</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="date" id="text-input" name="tanggal" placeholder="Tanggal Pembelian" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Harga beli per unit</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="harga_beli" placeholder="Harga per unit" class="form-control">
+                                            <input type="date" id="input-tgl" name="tanggal" placeholder="Tanggal Pembelian" class="form-control" required>
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
@@ -224,25 +202,16 @@
                                             <b><label for="text-input" class=" form-control-label">Harga jual per unit</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="harga_jual" placeholder="Harga per unit" class="form-control">
+                                            <input type="number" id="input-jual-barang" name="harga_jual" placeholder="Harga per unit" class="form-control" readonly>
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
-                                    <div class="row form-group">
+                                    <div class="row form-group" hidden>
                                         <div class="col col-md-3">
                                             <b><label for="text-input" class=" form-control-label">Profit</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="profit"  class="form-control" readonly="">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Ket</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="ket" placeholder="keterangan" class="form-control">
+                                            <input type="number" id="input-profit-barang" name="profit" placeholder="Profit per unit" class="form-control" readonly>
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
@@ -283,8 +252,53 @@
 <script src="assets/js/main.js"></script>
 
 <script type="text/javascript">
-    $('#input-kode-barang').keyup(function(e){
-        
+ 
+    $('#input-jumlah-barang').keyup(function(){
+        $(this).val('');
+    });
+    $('#input-kode-barang').keyup(function(){
+        $('.kode-ket > *').remove();
+        var input = $(this).val().toUpperCase();
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("kode_barang", input);
+
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: urlencoded,
+          redirect: 'follow'
+        };
+
+        fetch("http://localhost:8080/master4/core/getbarang.php", requestOptions)
+          .then(response => response.json())
+          .then(result => {
+            if(result.status === true){
+                $('#input-tgl').attr('readonly',false);
+                $('#submit').removeAttr('disabled');
+
+                $('#input-jumlah-barang').removeAttr('readonly');
+                $('#input-nama-barang').val(result.data.nama);
+                $('#input-stock-barang').val(result.data.jumlah);
+                $('#input-jumlah-barang').attr('max',result.data.jumlah);
+                $('#input-jual-barang').val(result.data.harga_jual);
+                $('#input-profit-barang').val(result.data.profit);
+                if(result.data.jumlah === '0'){
+                    console.log('yes');
+                    $('#input-jumlah-barang').attr('readonly',true);
+                    $('#submit').attr('disabled',true);
+                    $('#input-tgl').attr('readonly',true);
+                }
+            }else{
+                $('.kode-ket').append('<p class="text-danger">Kode tidak ditemukan!</p>');
+                $('#input-jumlah-barang').attr('readonly',true);
+                $('#input-tgl').attr('readonly',true);
+                $('#submit').attr('disabled',true);
+            }
+          })
+          .catch(error => console.log('error', error));
     });
 </script>
 </body>

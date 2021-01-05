@@ -142,9 +142,6 @@
                             <div class="card-header">
                                 <strong class="card-title">Data Semua Barang</strong>
                                 <div class="float-right">
-                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#add-data">
-                                        <i class="fa fa-plus-square"></i> Add
-                                    </button>
                                     <a href="print_aset.php" target="blank">
                                         <button type="button" class="btn btn-primary btn-sm">
                                             <i class="fa fa-print"></i> Cetak
@@ -155,7 +152,6 @@
                                             <i class="fa fa-save"></i> Data lengkap
                                         </button>
                                     </a>
-                                    <span class="badge badge-success"><?php echo$total ?></span>
                                 </div>
                             </div>
                             <div class="card-body">    
@@ -164,8 +160,9 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Barang</th>
+                                            <th>Kode Barang</th>
                                             <th>Jenis Barang</th>
-                                            <th>Jumlah Barang</th>
+                                            <th>Stock Barang</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -175,6 +172,7 @@
                                         <tr>
                                             <td><?=$no; ?></td>
                                             <td><?=$data['nama']; ?></td>
+                                            <td><?=$data['kode']; ?></td>
                                             <td><?=$data['jenis'];?></td>
                                             <td><?=$data['jumlah'];?></td>
                                             
@@ -236,7 +234,6 @@
                                                         <strong>Ukuran</strong><p><?= $data['ukuran']; ?></p><hr>
                                                         <strong>Jenis</strong><p><?= $data['jenis']; ?></p><hr>
                                                         <strong>Jumlah</strong><p><?= $data['jumlah']; ?></p><hr>
-                                                        <strong>Tanggal</strong><p><?= $data['tanggal']; ?></p><hr>
                                                         <strong>Harga Beli</strong><p><?php echo $hasil_rupiah = "Rp " . number_format($data['harga_beli'],2,',','.'); ?></p><hr>
                                                         <strong>Harga Jual</strong><p><?php echo $hasil_rupiah = "Rp " . number_format($data['harga_jual'],2,',','.'); ?></p><hr>
                                                         <strong>Profit</strong><p><?php echo $hasil_rupiah = "Rp " . number_format($data['profit'],2,',','.'); ?></p><hr>
@@ -316,132 +313,6 @@
       } );
     </script>
 
-    <div id="add-data" class="modal fade" role="dialog">
-       <div class="modal-dialog modal-lg">
-        <!-- konten modal-->
-        <div class="modal-content">
-            <!-- heading modal -->
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Tambah data</h4>
-            </div>
-            <!-- body modal -->
-            <div class="modal-body">
-                  <form action="inputdata.php" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Id Barang</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="int" id="text-input" name="id" value="<?= $urut; ?>" class="form-control" readonly>
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Nama Barang</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="nama" placeholder="Nama Barang" class="form-control" required>
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Kode Barang</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="kode" placeholder="Kode Barang" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Ukuran</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <select name="ukuran" id="selectSm" class="form-control-sm form-control" required>
-                                                <option disabled selected="">Ukuran</option>
-                                                <option value="1">KECIL</option>
-                                                <option value="2">SEDANG</option>
-                                                <option value="3">BESAR</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Jenis</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="jenis" placeholder="Jenis" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Jumlah</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="int" id="text-input" name="jumlah" placeholder="Jumlah" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Tanggal Pembelian</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="date" id="text-input" name="tanggal" placeholder="Tanggal Pembelian" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Harga beli per unit</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="harga_beli" placeholder="Harga per unit" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Harga jual per unit</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="harga_jual" placeholder="Harga per unit" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Profit</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="profit"  class="form-control" readonly="">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Ket</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="ket" placeholder="keterangan" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <button type="submit" id="submit" class="btn btn-success">Tambah</button>
-                                </form>
-            </div>
-            <!-- footer modal -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-            </div>
-        </div>
-       </div>
-    </div>
 
 </body>
 </html>

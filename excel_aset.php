@@ -1,7 +1,7 @@
 <?php 
 
-$conn=mysqli_connect("localhost", "root", "", "aset1");
-$query=mysqli_query($conn, "SELECT * from tbl_aset");
+include 'core/koneksi.php';
+$query=mysqli_query($conn, "SELECT * from tbl_barang");
 
 $no=1;
 
@@ -49,38 +49,29 @@ $no=1;
 	<table border="1">
 		<tr>
             <th>No</th>
-            <th>Ruangan</th>
-            <th>Nama</th>
-            <th>Merek</th>
+            <th>Nama Barang</th>
+            <th>Kode Barang</th>
             <th>Ukuran</th>
-            <th>Bahan</th>
-            <th>Tahun Pembuatan</th>
-            <th>Kode</th>
-            <th>Jumlah</th>
-            <th>Harga</th>
-            <th>Baik</th>
-            <th>Kurang baik</th>
-            <th>Rusak Berat</th>
+            <th>Jenis Barang</th>
+            <th>Stock</th>
+            <th>Harga Beli</th>
+            <th>Harga Jual</th>
+            <th>Profit</th>
             <th>Keterangan</th>
-
 		</tr>
 		<tbody id="hasil"> 
             <?php if(mysqli_num_rows($query)){ ?> 
             <?php while ($baris = mysqli_fetch_array($query)){ ?>
             <tr>
             	<td><?= $no; ?></td>
-            	<td><?php echo $baris['ruangan']; ?></td>
             	<td><?php echo $baris['nama']; ?></td>
-            	<td><?php echo $baris['merek']; ?></td>
-            	<td><?php echo $baris['ukuran']; ?></td>
-            	<td><?php echo $baris['bahan']; ?></td>
-            	<td><?php echo $baris['thn_pembuatan']; ?></td>
-                  <td><?php echo $baris['kode']; ?></td>
-            	<td><?php echo $baris['jumlah']; ?></td>
-            	<td><?php echo $hasil_rupiah = "Rp " . number_format($baris['harga'],2,',','.'); ?></td>
-            	<td><?php echo $baris['baik']; ?></td>
-            	<td><?php echo $baris['kurang_baik']; ?></td>
-            	<td><?php echo $baris['rusak_berat']; ?></td>
+            	<td><?php echo $baris['kode']; ?></td>
+                  <td><?php echo $baris['ukuran']; ?></td>
+            	<td><?php echo $baris['jenis']; ?></td>
+                  <td><?php echo $baris['jumlah']; ?></td>
+            	<td><?php echo $hasil_rupiah = "Rp " . number_format($baris['harga_beli'],2,',','.'); ?></td>
+                  <td><?php echo $hasil_rupiah = "Rp " . number_format($baris['harga_jual'],2,',','.'); ?></td>
+            	<td><?php echo $baris['profit']; ?></td>
             	<td><?php echo $baris['ket']; ?></td>
             </tr>
             <?php $no++; } ?>

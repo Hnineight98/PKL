@@ -1,5 +1,5 @@
 <?php  
-    $conn=mysqli_connect("localhost", "root", "", "myne");
+    include 'core/koneksi.php';
 
     session_start();
     $pengguna=$_SESSION['pengguna'];
@@ -7,7 +7,7 @@
         header("location:index.php");
     } 
 
-    $query=mysqli_query($conn, "SELECT * FROM tbl_barang ");
+    $query=mysqli_query($conn, "SELECT DATE_FORMAT(tanggal_terjual, '%Y-%m') AS bulan, SUM(ts.netincome) AS netincome,SUM(ts.gsincome)AS gsincome, SUM(ts.jumlah_terjual) AS jlh_terjual FROM tbl_transaksi as ts JOIN tbl_barang as tb ON ts.kode_barang = tb.kode GROUP BY DATE_FORMAT(tanggal_terjual, '%Y%m') ASC");
     $query1=mysqli_query($conn, "SELECT * FROM admin ");
     $total = mysqli_num_rows($query);
     $total1 = mysqli_num_rows($query1);
@@ -201,21 +201,19 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-body">
-                                <h4 class="box-title">Dinas Lingkungan Hidup Kota Mataram</h4>
+                            <div class="card-header">
+                                <strong class="card-title">Data Semua Barang</strong>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-12">
                                     <div class="card-body">
                                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Barang</th>
-                                            <th>Kode Barang</th>
+                                            <th>Bulan</th>
                                             <th>Jumlah Barang</th>
                                             <th>Gross Income</th>
                                             <th>Net Income</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     
@@ -223,11 +221,15 @@
                                         <?php $no=1; foreach ($query as $data) : ?>                                
                                         <tr>
                                             <td><?=$no; ?></td>
-                                            <td><?=$data['nama']; ?></td>
-                                            <td><?=$data['jenis'];?></td>
-                                            <td><?=$data['jumlah'];?></td>
-                                            <td>gross</td>
-                                            <td>net</td>
+                                            <td><?=$data['bulan']; ?></td>
+                                            <td><?=$data['jlh_terjual'];?></td>
+                                            <td><?= 'Rp'. number_format($data['gsincome']);?></td>
+                                            <td><?='Rp'. number_format($data['netincome']);?></td>
+                                            <td><a href="print-dashboard.php?tanggal=<?= $data['bulan'] ?>">
+                                                <button type="button" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-save"></i> Cetak
+                                                </button>
+                                            </a></td>
                                         </tr>
 
                                         <?php $no++; endforeach; ?>
@@ -235,8 +237,6 @@
                                     
                                 </table>
                                     </div>
-                                </div>
-                            </div> <!-- /.row -->
                         </div>
                     </div><!-- /# column -->
                 </div>
