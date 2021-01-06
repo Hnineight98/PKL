@@ -1,6 +1,6 @@
 
 <?php
-	$conn=mysqli_connect("localhost", "root", "", "aset1");
+	$conn=mysqli_connect("localhost", "root", "", "myne");
 	// if (isset($_POST['submit'])){
 		
 		$nama=$_POST['nama'];

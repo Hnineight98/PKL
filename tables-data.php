@@ -27,7 +27,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dinas Lingkungan Hidup Kota Mataram</title>
+    <title>MYNE COLLECTION</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -275,7 +275,7 @@
             <div class="footer-inner bg-white">
                 <div class="row">
                     <div class="col-sm-6">
-                        Copyright &copy; 2019 Dinas Lingkungan Hidup Kota Mataram
+                        Copyright &copy; 2020 MYNE COLLECTION
                     </div>
                     <div class="col-sm-6 text-right">
                         Designed by <a href="https://colorlib.com">Colorlib</a>

@@ -22,7 +22,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dinas Lingkungan Hidup Kota Mataram</title>
+    <title>MYNE COLLECTION</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -43,7 +43,7 @@
 <body>
     <!-- Left Panel -->
 
-     <aside id="left-panel" class="left-panel">
+    <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -52,11 +52,14 @@
                     </li>
                     <li class="menu-title">Components</li><!-- /.menu-title -->
                     
-                     <li>
+                     <li class="active">
                         <a href="tables-data.php"><i class="menu-icon fa fa-cogs"></i>Daftar Aset </a>
                     </li>
-                     <li>
-                        <a href=""><i class="menu-icon fa fa-th"></i>Tambah Aset </a>
+                     <li >
+                        <a href="forms-basic.php"><i class="menu-icon fa fa-th"></i>Tambah Barang </a>
+                    </li>
+                    <li>
+                        <a href="forms-transaksi.php"><i class="menu-icon fa fa-th"></i>Transaksi </a>
                     </li>
                     <li>
                         <a href="keluar.php"><i class="menu-icon fa fa-close"></i>Logout</a>

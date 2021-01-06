@@ -1,6 +1,6 @@
 <?php  
     
-    $conn=mysqli_connect("localhost", "root", "", "aset1");
+    $conn=mysqli_connect("localhost", "root", "", "myne");
 
     session_start();
     $pengguna=$_SESSION['pengguna'];
@@ -45,11 +45,10 @@
 </head>
 <body>
     <!-- Left Panel -->
-
-    <aside id="left-panel" class="left-panel">
+<aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
-                 <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">
                     <li>
                         <a href="home.php"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
@@ -59,7 +58,10 @@
                         <a href="tables-data.php"><i class="menu-icon fa fa-cogs"></i>Daftar Aset </a>
                     </li>
                      <li>
-                        <a href="forms-basic.php"><i class="menu-icon fa fa-th"></i>Tambah Aset </a>
+                        <a href="forms-basic.php"><i class="menu-icon fa fa-th"></i>Tambah Barang </a>
+                    </li>
+                    <li>
+                        <a href="forms-transaksi.php"><i class="menu-icon fa fa-th"></i>Transaksi </a>
                     </li>
                     <li>
                         <a href="keluar.php"><i class="menu-icon fa fa-close"></i>Logout</a>
@@ -125,7 +127,7 @@
                                 <div class="mx-auto d-block">
                                     <img class="rounded-circle mx-auto d-block" src="images/admin1.jpg" alt="Card image cap">
                                     <h5 class="text-sm-center mt-2 mb-1"><?php echo$nama; ?></h5>
-                                    <div class="location text-sm-center"><i class="fa fa-map-marker"></i> Dinas Lingkungan Hidup Kota Mataram<br><br>
+                                    <div class="location text-sm-center"><i class="fa fa-map-marker"></i> MYNE COLLECTION<br><br>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#detail-profile">Edit profile</button></div>
 
                                     <div class="float-center"></div>
@@ -155,7 +157,7 @@
             <div class="footer-inner bg-white">
                 <div class="row">
                     <div class="col-sm-6">
-                        Copyright &copy; 2019 Dinas Lingkungan Hidup Kota Mataram
+                        Copyright &copy; 2020 MYNE COLLECTION
                     </div>
                     <div class="col-sm-6 text-right">
                         Designed by <a href="https://colorlib.com">Colorlib</a>

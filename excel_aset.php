@@ -40,7 +40,7 @@ $no=1;
 	?>
  
 	<left>
-		<h4>DAFTAR ASET DINAS LINGKUNGAN HIDUP KOTA MATARAM
+		<h4>DAFTAR ASET MYNE COLLECTION
 			<br>NOMOR :</br>
 			<br>TANGGAL : </br>
 		</h4>

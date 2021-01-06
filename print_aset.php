@@ -7,7 +7,7 @@ $total = mysqli_num_rows($query);
 ?>
 
 	<center>
-		<h3>DAFTAR ASET DINAS LINGKUNGAN HIDUP KOTA MATARAM</h3>
+		<h3>DAFTAR ASET MYNE COLLECTION</h3>
 	</center>
 				<table border="1" style="width: 100%;border-collapse: collapse;">
   					<thead>

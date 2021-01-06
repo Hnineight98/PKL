@@ -2,7 +2,7 @@
 <?php
 	$username=$_POST['username'];
 	$pass=$_POST['password'];
-	$conn=mysqli_connect("localhost", "root", "", "aset1");
+	$conn=mysqli_connect("localhost", "root", "", "myne");
 	if($conn){
 		$user_db=mysqli_query($conn, "SELECT username,password FROM admin WHERE username='$username'");
 		$baris=mysqli_fetch_row($user_db);
