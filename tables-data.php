@@ -178,7 +178,8 @@
                                             
                                             <td>
                                                 <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#detail-data<?php echo $data['id']?>">Lihat data</button>
-                                                <a href="edit_data.php?id=<?php echo $data['id']; ?>"><button type="button" class="btn btn-primary btn-sm">
+                                                <a href="edit_data.php?id=<?php echo $data['id']; ?>">
+                                                    <button type="button" class="btn btn-primary btn-sm">
                                                     <i class="fa fa-check-square-o"></i> Edit
                                                 </button></a>
                                                 <a data-toggle="modal" data-target="#hapusdata<?php echo $data['id']?>"><button type="button" class="btn btn-danger btn-sm">

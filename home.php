@@ -93,12 +93,12 @@
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <li  class="active">
                         <a href="home.php"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Components</li><!-- /.menu-title -->
                     
-                     <li class="active">
+                     <li>
                         <a href="tables-data.php"><i class="menu-icon fa fa-cogs"></i>Daftar Aset </a>
                     </li>
                      <li>
@@ -229,7 +229,8 @@
                                                 <button type="button" class="btn btn-primary btn-sm">
                                                     <i class="fa fa-save"></i> Cetak
                                                 </button>
-                                            </a></td>
+                                                </a>
+                                            </td>
                                         </tr>
 
                                         <?php $no++; endforeach; ?>

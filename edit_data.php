@@ -1,5 +1,5 @@
 <?php  
-    $conn=mysqli_connect("localhost", "root", "", "aset1");
+    $conn=mysqli_connect("localhost", "root", "", "myne");
     session_start();
     $pengguna=$_SESSION['pengguna'];
     if($pengguna=="" || $pengguna==" "){
@@ -122,93 +122,26 @@
                             <div class="card-body card-block">
                                 <form action="edit_data_db.php" method="post" enctype="multipart/form-data" class="form-horizontal">
 
-                                    <?php $query = mysqli_query($conn, "SELECT * FROM tbl_aset WHERE id='$id'"); while($data = mysqli_fetch_array($query)){ ?>
-
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="selectSm" class=" form-control-label">Ruangan</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <select name="ruangan" id="selectSm" class="form-control-sm form-control" required>
-                                                <option disabled selected="">Ruangan</option>
-                                                <option value="1">SEKRETARIS</option>
-                                                <option value="2">KEPALA DINAS</option>
-                                                <option value="3">SUB. BAGIAN UMUM DAN KEPEGAWAIAN</option>
-                                                <option value="4">SUB. BAGIAN UMUM DAN KEPEGAWAIAN/KORIDOR</option>
-                                                <option value="5">SUB. BAGIAN PERENCANAAN</option>
-                                                <option value="6">BIDANG PENATAAN DAN PENINGKATAN KAPASITAS SDM</option>
-                                                <option value="7">BIDANG PENGELOLAAN SAMPAH LIMBAH B3</option>
-                                                <option value="8">PENGURUS DAN PENYIMPAN BARANG</option>
-                                                <option value="9">SUB. BAGIAN KEUANGAN</option>
-                                                <option value="10">RUANGAN RAPAT</option>
-                                                <option value="11">WORK SHOP</option>
-                                                <option value="12">TATA LINGKUNGAN ( AMDAL )</option>
-                                                <option value="13">BIDANG PENGAWASAN PENGENDALIAN PENCEMARAN LH</option>
-                                                <option value="14">UPTD LABORATURIUM</option>
-                                                <option value="15">AULA</option>
-                                                <option value="16">PUSAT PELAYANAN DLH</option>
-                                                <option value="17">UPTD BANK SAMPAH</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-
+                                    <?php $query = mysqli_query($conn, "SELECT * FROM tbl_barang WHERE id='$id'"); while($data = mysqli_fetch_array($query)){ ?>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <b><label for="text-input" class=" form-control-label">Id Barang</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="id" value="<?= $data['id']; ?>" class="form-control" readonly>
+                                            <input type="int" id="text-input" name="id" value="<?= $data['id']; ?>" class="form-control" readonly>
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Nama Barang/Jenis Barang</label></b>
+                                            <b><label for="text-input" class=" form-control-label">Nama Barang</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="text-input" name="nama" value="<?= $data['nama']; ?>" class="form-control" required>
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Merek/Model</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="merek" value="<?= $data['merek']; ?>" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Ukuran</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="ukuran" value="<?= $data['ukuran']; ?>" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Bahan</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="bahan" value="<?= $data['bahan']; ?>" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Tahun Pembuatan/Pembelian</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="thn_pembuatan" value="<?= $data['thn_pembuatan']; ?>" class="form-control">
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <b><label for="text-input" class=" form-control-label">Kode Barang</label></b>
@@ -218,13 +151,34 @@
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
-                                    
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Jumlah Barang</label></b>
+                                            <b><label for="text-input" class=" form-control-label">Ukuran</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="jumlah" value="<?= $data['jumlah']; ?>" class="form-control" required>
+                                            <select name="ukuran" value="<?= $data['ukuran']; ?>" id="selectSm" class="form-control-sm form-control" required>
+                                                <option disabled selected="">Ukuran</option>
+                                                <option value="KECIL">KECIL</option>
+                                                <option value="SEDANG">SEDANG</option>
+                                                <option value="BESAR">BESAR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <b><label for="text-input" class=" form-control-label">Jenis</label></b>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" id="text-input" name="jenis" value="<?= $data['jenis']; ?>" placeholder="Jenis" class="form-control">
+                                            <small class="form-text text-muted"></small>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <b><label for="text-input" class=" form-control-label">Jumlah</label></b>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="int" id="text-input" name="jumlah" value="<?= $data['jumlah']; ?>" placeholder="Jumlah" class="form-control">
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
@@ -233,34 +187,25 @@
                                             <b><label for="text-input" class=" form-control-label">Harga beli per unit</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="harga" value="<?= $data['harga']; ?>" class="form-control">
+                                            <input type="number" id="input-harga-beli" name="harga_beli" value="<?= $data['harga_beli']; ?>" placeholder="Harga per unit" class="form-control">
+                                            <small class="ket-hrg-beli form-text text-muted"></small>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <b><label for="text-input" class=" form-control-label">Harga jual per unit</label></b>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="number" id="input-harga-jual" name="harga_jual" value="<?= $data['harga_jual']; ?>" placeholder="Harga per unit" class="form-control">
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Baik</label></b>
+                                            <b><label for="text-input" class=" form-control-label">Profit</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="baik" value="<?= $data['baik']; ?>" class="form-control" required>
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Kurang Baik</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="kurang_baik" value="<?= $data['kurang_baik']; ?>" class="form-control" required>
-                                            <small class="form-text text-muted"></small>
-                                        </div>
-                                    </div>
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <b><label for="text-input" class=" form-control-label">Rusak Berat</label></b>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <input type="number" id="text-input" name="rusak_berat" value="<?= $data['rusak_berat']; ?>" class="form-control" required>
+                                            <input type="number" id="input-profit" name="profit"  value="<?= $data['profit']; ?>" class="form-control" readonly="">
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
@@ -269,7 +214,7 @@
                                             <b><label for="text-input" class=" form-control-label">Ket</label></b>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="text-input" name="ket" value="<?= $data['ket']; ?>" class="form-control">
+                                            <input type="text" id="text-input" name="ket" value="<?= $data['ket']; ?>" placeholder="keterangan" class="form-control">
                                             <small class="form-text text-muted"></small>
                                         </div>
                                     </div>
@@ -305,6 +250,7 @@
 <!-- Right Panel -->
 
 <!-- Scripts -->
+<script src="assets/js/jquery-3-5-1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
@@ -339,5 +285,25 @@
     </div>
     <!-- Popup hapus -->
 
+<script type="text/javascript">
+    var hrgBeli= $('#input-harga-beli');
+    var hrgJual = $('#input-harga-jual');
+
+    hrgJual.keyup(function(){
+        $('.ket-hrg-beli > *').remove();
+        if(hrgBeli.val().length === 0){
+            $('.ket-hrg-beli').append("<p class='text-danger'>Harga beli per unit tidak boleh kosong</p>");
+            hrgBeli.focus();
+        }else{
+            var calc = hrgJual.val()-hrgBeli.val();
+            if(!(calc < 0)){
+                $('#input-profit').val(calc);
+            }else{
+                $('#input-profit').val('0');
+            }
+            
+        }
+    });
+</script>
 </body>
 </html>
