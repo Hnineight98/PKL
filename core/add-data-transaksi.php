@@ -27,5 +27,5 @@ $add_transaksi = mysqli_query(
 
 $message="Data berhasil dimasukkan";
 echo "<script type='text/javascript'>alert('$message');</script>";
-header('location:../forms-transaksi.php');
+header('location:../home.php');
 ?>

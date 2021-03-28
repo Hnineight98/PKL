@@ -1,8 +1,7 @@
 <?php
 	
 		$conn=mysqli_connect("localhost", "root", "", "myne");
-	 
-    	$id=$_POST['id'];
+        $id=$_POST['id'];
         $nama=$_POST['nama'];
         $kode=$_POST['kode'];
 
@@ -18,7 +17,7 @@
         $query=mysqli_query($conn, "INSERT INTO `tbl_barang` (`id`, `nama`, `kode`, `ukuran`, `jenis`, `jumlah`, `harga_beli`, `harga_jual`, `profit`, `ket`) VALUES ($id, '".$nama."', '".$kode."', '".$ukuran."', '".$jenis."', '".$jumlah."', '".$harga_beli."', '".$harga_jual."', '".$profit."', '".$ket."')");
         // VALUES ('2', $nama, $kode, $ukuran, $jenis, $jumlah, $harga_beli, $harga_jual, $profit, $ket)");
 
-        // var_dump($query);
+        
         $message="Data berhasil dimasukkan";
         echo "<script type='text/javascript'>alert('$message');</script>";
 
@@ -32,7 +31,7 @@
         // echo $harga_jual;
         // echo $profit;
         // echo $ket;
-
+        var_dump($query);
         // var_dump($query);
 
         header('location:tables-data.php');

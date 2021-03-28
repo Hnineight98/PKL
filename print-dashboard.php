@@ -37,7 +37,7 @@ $total = mysqli_num_rows($query);
                       <td><?= $baris['jenis']; ?></td>
                       <td><?= $baris['jumlah_terjual']; ?></td>
                       <td><?= $hasil_rupiah = "Rp " . number_format($baris['harga_jual'],2,',','.'); ?></td>
-                      <td><?= $baris['profit']; ?></td>
+                      <td><?= $baris['profit'] = "Rp " . number_format($baris['profit'],2,',','.'); ?></td>
                       <td><?= $baris['tanggal_terjual']; ?></td>
                   </tr>
                   <?php $no++; endforeach; ?>   

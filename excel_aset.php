@@ -41,8 +41,6 @@ $no=1;
  
 	<left>
 		<h4>DAFTAR ASET MYNE COLLECTION
-			<br>NOMOR :</br>
-			<br>TANGGAL : </br>
 		</h4>
 	</left>
       
@@ -71,7 +69,7 @@ $no=1;
                   <td><?php echo $baris['jumlah']; ?></td>
             	<td><?php echo $hasil_rupiah = "Rp " . number_format($baris['harga_beli'],2,',','.'); ?></td>
                   <td><?php echo $hasil_rupiah = "Rp " . number_format($baris['harga_jual'],2,',','.'); ?></td>
-            	<td><?php echo $baris['profit']; ?></td>
+            	<td><?php echo $baris['profit'] = "Rp " . number_format($baris['profit'],2,',','.'); ?></td>
             	<td><?php echo $baris['ket']; ?></td>
             </tr>
             <?php $no++; } ?>

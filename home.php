@@ -9,8 +9,12 @@
 
     $query=mysqli_query($conn, "SELECT DATE_FORMAT(tanggal_terjual, '%Y-%m') AS bulan, SUM(ts.netincome) AS netincome,SUM(ts.gsincome)AS gsincome, SUM(ts.jumlah_terjual) AS jlh_terjual FROM tbl_transaksi as ts JOIN tbl_barang as tb ON ts.kode_barang = tb.kode GROUP BY DATE_FORMAT(tanggal_terjual, '%Y%m') ASC");
     $query1=mysqli_query($conn, "SELECT * FROM admin ");
-    $total = mysqli_num_rows($query);
+    $query2=mysqli_query($conn,"SELECT * FROM tbl_barang");
+    $query3=mysqli_query($conn,"SELECT * FROM tbl_transaksi");
+    // $total = mysqli_num_rows($query);
     $total1 = mysqli_num_rows($query1);
+    $total2 = mysqli_num_rows($query2);
+    $total3 = mysqli_num_rows($query3);
     ?>
 
 
@@ -19,7 +23,8 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-<link rel="shortcut icon" href="images/favicon.ico">
+
+<link rel="shortcut icon" href="images/logomyne.jpeg">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -120,8 +125,8 @@
         <!-- Header-->
         <header id="header" class="header">
             <div class="top-left">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="home.php"><img src="images/logo1.png" alt="Logo"></a>
+                <div class="navbar-header ">
+                    <a class="navbar-brand" href="home.php"><img height="40" src="images/logomyne.jpeg" alt="Logo"></a>
                     <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
@@ -140,7 +145,7 @@
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin1.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded" src="images/logomyne.jpeg" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
@@ -168,8 +173,25 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-heading">Total Barang</div>
-                                            <div class="stat-text">Total: <?php echo$total ?></div>
+                                            <div class="stat-heading">Total Transaksi</div>
+                                            <div class="stat-text">Total: <?php echo$total3 ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-four">
+                                    <div class="stat-icon dib">
+                                        <i class="ti-file text-muted"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-heading">Total Aset Barang</div>
+                                            <div class="stat-text">Total: <?php echo$total2 ?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -291,7 +313,6 @@
     <script src="assets/js/init/fullcalendar-init.js"></script>
 
     <!--Local Stuff-->
-
    
 </body>
 </html>

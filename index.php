@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="images/logomyne.jpeg">
 
 <head>
     <meta charset="UTF-8">
@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="login_stuff/images/mataram.jpg" alt="sing up image"></figure>
+                        <figure><img src="images/logomyne.jpeg" alt="sing up image"></figure>
                         <a href="#" class="signup-image-link">Buat Akun</a>
                     </div>
 

@@ -20,11 +20,11 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="images/logomyne.jpeg">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dinas Lingkungan Hidup Kota Mataram</title>
+    <title>MYNE COLLECTION</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -81,7 +81,7 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="images/logo1.png" alt="Logo"></a> 
+                <a class="navbar-brand" href="home.php"><img height="40" src="images/logomyne.jpeg" alt="Logo"></a> 
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
@@ -99,7 +99,7 @@
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin1.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
@@ -120,12 +120,12 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Data Aset</strong>
+                                <strong class="card-title">Profile</strong>
                             </div>
                             
                             <div class="card-body">
                                 <div class="mx-auto d-block">
-                                    <img class="rounded-circle mx-auto d-block" src="images/admin1.jpg" alt="Card image cap">
+                                    <img class="rounded-circle mx-auto d-block" src="images/admin.jpg" alt="Card image cap">
                                     <h5 class="text-sm-center mt-2 mb-1"><?php echo$nama; ?></h5>
                                     <div class="location text-sm-center"><i class="fa fa-map-marker"></i> MYNE COLLECTION<br><br>
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#detail-profile">Edit profile</button></div>
@@ -247,7 +247,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Popup1 -->
-
+          <!-- Popup1 -->
 </body>
 </html>

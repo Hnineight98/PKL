@@ -26,9 +26,7 @@
     // else if(strlen($tambah)==4){
     //     $format="AST".$tambah;
     // }
-        
     
-
 ?>
 
 <!doctype html>
@@ -36,7 +34,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="images/logomyne.jpeg">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -98,8 +96,7 @@
          <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="home.php"><img src="images/logo1.png" alt="Logo"></a>
-                  
+                  <a class="navbar-brand" href="home.php"><img height="40" src="images/logomyne.jpeg" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
@@ -117,7 +114,7 @@
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin1.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded" src="images/logomyne.jpeg" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
